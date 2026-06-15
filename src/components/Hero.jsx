@@ -9,6 +9,7 @@ const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
+  // Typing Effect
   useEffect(() => {
     const currentWord = words[wordIndex];
 
@@ -35,8 +36,25 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, wordIndex]);
 
+  // Spotlight Effect
+  useEffect(() => {
+    const moveSpotlight = (e) => {
+      document.documentElement.style.setProperty("--x", `${e.clientX}px`);
+
+      document.documentElement.style.setProperty("--y", `${e.clientY}px`);
+    };
+
+    window.addEventListener("mousemove", moveSpotlight);
+
+    return () => {
+      window.removeEventListener("mousemove", moveSpotlight);
+    };
+  }, []);
+
   return (
     <section className="hero">
+      <div className="spotlight"></div>
+
       <motion.div
         className="hero-image"
         initial={{ opacity: 0, x: -80 }}
@@ -47,14 +65,14 @@ const Hero = () => {
       </motion.div>
 
       <div className="hero-content">
-        <motion.p
-          className="hero-subtitle"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 1 }}
+        <motion.div
+          className="hero-logo"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
         >
-          AAKASH
-        </motion.p>
+          Aakash
+        </motion.div>
 
         <div className="hero-title">
           <div
@@ -73,19 +91,27 @@ const Hero = () => {
           </div>
         </div>
 
-        <motion.p
+        <motion.div
           className="hero-description"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
           transition={{
             delay: 1.2,
             duration: 1,
+            ease: "easeOut",
           }}
         >
           Building digital experiences through
           <br />
-          technology, design and visual storytelling.
-        </motion.p>
+          <span>Technology</span>,<span> Design</span> and
+          <span> Visual Storytelling</span>.
+        </motion.div>
 
         <motion.button
           className="hero-btn"

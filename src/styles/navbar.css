@@ -25,3 +25,33 @@
 .nav-links a:hover {
   color: var(--accent);
 }
+.logo img {
+  display: block;
+  height: 120px;
+  width: auto;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+.navbar {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 20px 8%;
+
+  min-height: 100px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+
+  margin-left: -60px;
+}

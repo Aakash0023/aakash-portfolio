@@ -24,3 +24,91 @@ body {
   font-family: Inter, sans-serif;
   overflow-x: hidden;
 }
+body {
+  cursor: none;
+}
+
+.custom-cursor {
+  position: fixed;
+
+  width: 20px;
+  height: 20px;
+
+  border: 2px solid #d10000;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 9999;
+
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+
+  box-shadow: 0 0 10px rgba(209, 0, 0, 0.5), 0 0 20px rgba(209, 0, 0, 0.3);
+}
+
+.custom-cursor::before {
+  content: "";
+
+  position: absolute;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  background: rgba(209, 0, 0, 0.15);
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  filter: blur(8px);
+}
+.hero-logo {
+  font-family: "Dancing Script", cursive;
+
+  font-size: 3rem;
+
+  color: white;
+
+  margin-bottom: 20px;
+
+  letter-spacing: 1px;
+}
+.hero-logo {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+}
+.logo {
+  font-family: "Great Vibes", cursive;
+
+  font-size: 3rem;
+
+  color: white;
+
+  font-weight: 400;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.logo:hover {
+  color: #d10000;
+}
+.logo {
+  font-family: "Parisienne", cursive;
+  margin-left: -20px;
+}
+.logo::after {
+  content: ".";
+
+  color: var(--accent);
+}
+.logo img {
+  height: 580%;
+  width: auto;
+}
