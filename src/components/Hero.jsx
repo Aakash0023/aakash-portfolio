@@ -71,7 +71,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Aakash
+          I Do
         </motion.div>
 
         <div className="hero-title">

@@ -84,17 +84,11 @@ const Skills = () => {
         SKILLS
       </motion.p>
 
-      <motion.h2
-        className="skills-title"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        TECH
+      <h2 className="skills-title">
+        <span>TECH</span>
         <br />
         STACK
-      </motion.h2>
+      </h2>
 
       <div className="skills-grid">
         {skills.map((skill, index) => (

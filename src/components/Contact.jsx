@@ -17,17 +17,11 @@ const Contact = () => {
         CONTACT
       </motion.p>
 
-      <motion.h2
-        className="contact-title"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        LET'S
+      <h2 className="contact-title">
+        <span>LET'S</span>
         <br />
         CONNECT
-      </motion.h2>
+      </h2>
 
       <motion.p
         className="contact-description"

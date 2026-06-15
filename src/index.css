@@ -112,3 +112,6 @@ body {
   height: 580%;
   width: auto;
 }
+html {
+  scroll-behavior: smooth;
+}

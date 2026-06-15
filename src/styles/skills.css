@@ -14,12 +14,31 @@
 
 .skills-title {
   font-size: 6rem;
-
   line-height: 0.95;
 
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 
-  font-family: "Oswald", sans-serif;
+  position: relative;
+
+  display: inline-block;
+}
+
+.skills-title span {
+  color: var(--accent);
+}
+
+.skills-title::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -20px;
+
+  width: 90px;
+  height: 4px;
+
+  background: var(--accent);
 }
 
 .skills-grid {
