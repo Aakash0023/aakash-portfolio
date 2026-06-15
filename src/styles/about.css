@@ -1,0 +1,40 @@
+.about {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 8%;
+}
+
+.about-subtitle {
+  color: var(--text-secondary);
+
+  letter-spacing: 4px;
+
+  margin-bottom: 20px;
+}
+
+.about-title {
+  font-size: 6rem;
+
+  font-family: "Oswald", sans-serif;
+
+  line-height: 0.95;
+
+  margin-bottom: 40px;
+}
+
+.about-text {
+  max-width: 700px;
+
+  color: var(--text-secondary);
+
+  font-size: 1.4rem;
+
+  line-height: 1.8;
+}
+
+.about-text strong {
+  color: white;
+}
