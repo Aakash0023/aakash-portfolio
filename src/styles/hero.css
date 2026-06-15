@@ -1,0 +1,48 @@
+.hero {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 8%;
+}
+
+.hero-left {
+  flex: 1;
+}
+
+.portrait {
+  width: 500px;
+  height: 650px;
+
+  background: linear-gradient(to bottom, #111111, #050505);
+
+  border-radius: 10px;
+}
+
+.hero-right {
+  flex: 1;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  letter-spacing: 4px;
+  margin-bottom: 15px;
+}
+
+.hero-right h1 {
+  font-size: 7rem;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.hero-right span {
+  color: var(--accent);
+}
+
+.desc {
+  margin-top: 25px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
