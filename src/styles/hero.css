@@ -1,11 +1,13 @@
+
 .hero {
   min-height: 100vh;
+  padding-top: 180px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 8%;
+  padding: 25px 40px;
   gap: 4rem;
 }
 
@@ -76,10 +78,9 @@
   background: #ff2b2b;
 }
 .hero-title {
-  font-size: 7rem;
-  font-weight: 700;
-  line-height: 0.95;
-  font-family: "Oswald", sans-serif;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
 }
 
 .accent {
