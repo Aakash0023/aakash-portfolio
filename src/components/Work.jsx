@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import "../styles/work.css";
 
-import scenetheory from "../assets/projects/scenetheory.jpg";
+import scenetheory from "../assets/projects/scenetheory.png";
 import cerabai from "../assets/projects/cerabai.jpg";
 import codegalataa from "../assets/projects/codegalataa.jpg";
 
@@ -18,8 +18,8 @@ const projects = [
     title: "SceneTheory",
     description: "Movie Discovery Platform built with React and TMDB API.",
     image: scenetheory,
-    live: "https://your-live-link.com",
-    github: "https://github.com/yourusername/scenetheory",
+    live: "https://scene-theor-git-main-aakash-s-projects02301.vercel.app/",
+    github: "https://github.com/Aakash0023/SceneTheory",
   },
 
   {

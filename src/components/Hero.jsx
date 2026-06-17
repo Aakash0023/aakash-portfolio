@@ -1,6 +1,7 @@
 import "../styles/hero.css";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import heroImage from "../assets/hero-image.png";
 
 const Hero = () => {
   const words = ["TECH", "DESIGN", "STORIES"];
@@ -61,7 +62,9 @@ const Hero = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.2 }}
       >
-        <div className="image-placeholder"></div>
+        <div className="hero-image-wrapper">
+          <img src={heroImage} alt="Aakash" className="hero-profile-image" />
+        </div>
       </motion.div>
 
       <div className="hero-content">
@@ -113,17 +116,10 @@ const Hero = () => {
           <span> Visual Storytelling</span>.
         </motion.div>
 
-        <motion.button
-          className="hero-btn"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 1.5,
-            duration: 0.8,
-          }}
-        >
-          VIEW MY WORK
-        </motion.button>
+        <a href="#work" className="hero-btn">
+          <span>VIEW MY WORK</span>
+          <span className="arrow">→</span>
+        </a>
       </div>
     </section>
   );

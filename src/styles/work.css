@@ -82,25 +82,74 @@
 }
 
 .project-card {
-  background: rgba(255, 255, 255, 0.03);
+  position: relative;
 
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3px;
 
   border-radius: 20px;
 
   overflow: hidden;
 
-  transition: all 0.3s ease;
-
   cursor: pointer;
+
+  animation: floatCard 5s ease-in-out infinite;
+}
+
+.project-card:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.project-card:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.project-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -50%;
+
+  background: conic-gradient(
+    transparent,
+    var(--accent),
+    transparent,
+    var(--accent),
+    transparent
+  );
+
+  animation: rotateBorder 8s linear infinite;
+}
+
+.project-card:first-child::before {
+  animation-duration: 4s;
+}
+
+.project-card::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 3px;
+
+  background: #0a0a0a;
+
+  border-radius: 18px;
+
+  z-index: 1;
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-12px);
 
-  border-color: var(--accent);
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+}
 
-  box-shadow: 0 0 25px rgba(255, 0, 0, 0.15);
+.project-image,
+.project-content {
+  position: relative;
+
+  z-index: 2;
 }
 
 .project-image {
@@ -109,6 +158,8 @@
   height: 220px;
 
   object-fit: cover;
+
+  border-radius: 16px 16px 0 0;
 }
 
 .project-content {
@@ -315,7 +366,6 @@
   position: absolute;
 
   top: 30px;
-
   right: 40px;
 
   background: transparent;
@@ -344,6 +394,17 @@
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes floatCard {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
   }
 }
 
