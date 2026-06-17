@@ -1,0 +1,101 @@
+.chatbot-section {
+  min-height: 100vh;
+
+  padding: 120px 8%;
+}
+
+.chatbot-subtitle {
+  color: var(--text-secondary);
+
+  letter-spacing: 4px;
+
+  margin-bottom: 20px;
+}
+
+.chatbot-title {
+  font-size: 6rem;
+
+  line-height: 0.95;
+
+  margin-bottom: 60px;
+
+  position: relative;
+
+  display: inline-block;
+}
+
+.chatbot-title::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -20px;
+
+  width: 90px;
+
+  height: 4px;
+
+  background: var(--accent);
+}
+
+.chat-container {
+  margin-top: 80px;
+}
+
+.chat-response {
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 20px;
+
+  padding: 30px;
+
+  color: white;
+
+  font-size: 1.1rem;
+
+  line-height: 1.8;
+
+  margin-bottom: 40px;
+
+  min-height: 120px;
+}
+
+.question-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 15px;
+}
+
+.question-btn {
+  background: transparent;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: white;
+
+  padding: 14px 20px;
+
+  border-radius: 50px;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.question-btn:hover {
+  border-color: var(--accent);
+
+  color: var(--accent);
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+}
+.chat-popup {
+  font-family: "Orbitron", sans-serif;
+}

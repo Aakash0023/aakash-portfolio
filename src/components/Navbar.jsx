@@ -27,22 +27,25 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${showNavbar ? "show" : "hide"}`}>
+      {/* Logo */}
       <div className="logo">
         <img src={logo} alt="Aakash Logo" />
       </div>
 
+      {/* Navigation */}
       <div className="nav-links">
         <a href="#about">ABOUT</a>
 
         <a href="#skills">SKILLS</a>
 
-        <a href="#workS">WORK</a>
+        <a href="#work">WORK</a>
 
         <a href="#experience">EXPERIENCE</a>
 
         <a href="#contact">CONTACT</a>
       </div>
 
+      {/* Resume Button */}
       <a
         href="/Aakash_Resume.pdf"
         target="_blank"
