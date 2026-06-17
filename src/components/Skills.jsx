@@ -36,7 +36,6 @@ const skills = [
     name: "TypeScript",
     icon: <SiTypescript color="#3178C6" />,
   },
-
   {
     name: "HTML5",
     icon: <FaHtml5 color="#E34F26" />,
@@ -53,7 +52,6 @@ const skills = [
     name: "Node.js",
     icon: <FaNodeJs color="#339933" />,
   },
-
   {
     name: "Express.js",
     icon: <SiExpress color="#FFFFFF" />,
@@ -79,15 +77,37 @@ const Skills = () => {
         className="skills-subtitle"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
         SKILLS
       </motion.p>
 
       <h2 className="skills-title">
-        <span>TECH</span>
+        <motion.span
+          className="title-red"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
+          TECH
+        </motion.span>
+
         <br />
-        STACK
+
+        <motion.span
+          className="title-white"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.2,
+            duration: 0.7,
+          }}
+          viewport={{ once: true }}
+        >
+          STACK
+        </motion.span>
       </h2>
 
       <div className="skills-grid">
@@ -95,16 +115,26 @@ const Skills = () => {
           <motion.div
             key={index}
             className="skill-card"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.5,
-              delay: index * 0.05,
+            initial={{
+              opacity: 0,
+              y: 60,
+              scale: 0.8,
             }}
-            viewport={{ once: true }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+            }}
             whileHover={{
               y: -8,
+              scale: 1.08,
             }}
+            transition={{
+              duration: 0.6,
+              delay: index * 0.12,
+              ease: "easeOut",
+            }}
+            viewport={{ once: true }}
           >
             <div className="skill-icon">{skill.icon}</div>
 

@@ -33,7 +33,13 @@ const Navbar = () => {
 
       <div className="nav-links">
         <a href="#about">ABOUT</a>
+
         <a href="#skills">SKILLS</a>
+
+        <a href="#workS">WORK</a>
+
+        <a href="#experience">EXPERIENCE</a>
+
         <a href="#contact">CONTACT</a>
       </div>
 
