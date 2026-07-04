@@ -1,126 +1,136 @@
 import "../styles/hero.css";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import heroImage from "../assets/hero-image.png";
 
-const Hero = () => {
-  const words = ["TECH", "DESIGN", "STORIES"];
+import { FaGithub, FaLinkedin, FaArrowDown } from "react-icons/fa";
 
-  const [wordIndex, setWordIndex] = useState(0);
+import { SiLeetcode } from "react-icons/si";
+
+const Hero = () => {
+  const roles = [
+    "Full Stack Developer",
+    "React Developer",
+    "AI Enthusiast",
+    "Problem Solver",
+  ];
+
+  const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
-  // Typing Effect
   useEffect(() => {
-    const currentWord = words[wordIndex];
+    const current = roles[roleIndex];
 
     const timeout = setTimeout(
       () => {
         if (!isDeleting) {
-          setDisplayText(currentWord.substring(0, displayText.length + 1));
+          setDisplayText(current.substring(0, displayText.length + 1));
 
-          if (displayText === currentWord) {
-            setTimeout(() => setIsDeleting(true), 1200);
+          if (displayText === current) {
+            setTimeout(() => setIsDeleting(true), 1500);
           }
         } else {
-          setDisplayText(currentWord.substring(0, displayText.length - 1));
+          setDisplayText(current.substring(0, displayText.length - 1));
 
           if (displayText === "") {
             setIsDeleting(false);
-            setWordIndex((prev) => (prev + 1) % words.length);
+            setRoleIndex((prev) => (prev + 1) % roles.length);
           }
         }
       },
-      isDeleting ? 50 : 100
+      isDeleting ? 45 : 90
     );
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, wordIndex]);
+  }, [displayText, isDeleting, roleIndex]);
 
-  // Spotlight Effect
   useEffect(() => {
-    const moveSpotlight = (e) => {
-      document.documentElement.style.setProperty("--x", `${e.clientX}px`);
+    const move = (e) => {
+      document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
 
-      document.documentElement.style.setProperty("--y", `${e.clientY}px`);
+      document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
     };
 
-    window.addEventListener("mousemove", moveSpotlight);
+    window.addEventListener("mousemove", move);
 
-    return () => {
-      window.removeEventListener("mousemove", moveSpotlight);
-    };
+    return () => window.removeEventListener("mousemove", move);
   }, []);
 
   return (
     <section className="hero">
-      <div className="spotlight"></div>
+      <div className="aurora"></div>
+      <div className="grid-bg"></div>
+      <div className="mouse-light"></div>
 
-      <motion.div
-        className="hero-image"
-        initial={{ opacity: 0, x: -80 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1.2 }}
-      >
-        <div className="hero-image-wrapper">
-          <img src={heroImage} alt="Aakash" className="hero-profile-image" />
-        </div>
-      </motion.div>
-
-      <div className="hero-content">
+      <div className="hero-container">
         <motion.div
-          className="hero-logo"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          className="hero-left"
+          initial={{ opacity: 0, x: -70 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          I Do
-        </motion.div>
+          <span className="hero-badge">👋 Hello, I'm Aakash</span>
 
-        <div className="hero-title">
-          <div
-            className={`typing-title ${
-              words[wordIndex] === "STORIES" ? "stories-red" : ""
-            }`}
-          >
+          <h1>
+            Building
+            <span> Modern Digital </span>
+            Experiences
+          </h1>
+
+          <div className="typing">
             {displayText}
-            <span className="cursor">|</span>
+            <span>|</span>
           </div>
 
-          <div className="static-title">
-            ONE
-            <br />
-            CREATOR
+          <p>
+            Passionate Full Stack Developer focused on building scalable web
+            applications, AI-powered products and clean user experiences using
+            modern technologies.
+          </p>
+
+          <div className="hero-buttons">
+            <a href="#projects" className="primary-btn">
+              View Projects
+            </a>
+
+            <a href="/resume.pdf" className="secondary-btn" target="_blank">
+              Download Resume
+            </a>
           </div>
-        </div>
+
+          <div className="hero-socials">
+            <a href="https://github.com/" target="_blank">
+              <FaGithub />
+            </a>
+
+            <a href="https://linkedin.com/" target="_blank">
+              <FaLinkedin />
+            </a>
+
+            <a href="https://leetcode.com/" target="_blank">
+              <SiLeetcode />
+            </a>
+          </div>
+        </motion.div>
 
         <motion.div
-          className="hero-description"
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            delay: 1.2,
-            duration: 1,
-            ease: "easeOut",
-          }}
+          className="hero-right"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2 }}
         >
-          Building digital experiences through
-          <br />
-          <span>Technology</span>,<span> Design</span> and
-          <span> Visual Storytelling</span>.
-        </motion.div>
+          <div className="image-ring">
+            <div className="image-glow"></div>
 
-        <a href="#work" className="hero-btn">
-          <span>VIEW MY WORK</span>
-          <span className="arrow">→</span>
-        </a>
+            <img src={heroImage} alt="Aakash" />
+          </div>
+        </motion.div>
       </div>
+
+      <a href="#about" className="scroll-down">
+        <FaArrowDown />
+      </a>
     </section>
   );
 };
