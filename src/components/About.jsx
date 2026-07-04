@@ -1,93 +1,85 @@
 import "../styles/about.css";
 import { motion } from "framer-motion";
 import aboutImage from "../assets/about-image.png";
+import {
+  FaLaptopCode,
+  FaBrain,
+  FaGraduationCap,
+  FaRocket,
+} from "react-icons/fa";
+
+const cards = [
+  {
+    icon: <FaGraduationCap />,
+    title: "Education",
+    value: "B.E Robotics & AI",
+  },
+  {
+    icon: <FaLaptopCode />,
+    title: "Projects",
+    value: "10+ Completed",
+  },
+  {
+    icon: <FaBrain />,
+    title: "DSA",
+    value: "350+ Problems",
+  },
+  {
+    icon: <FaRocket />,
+    title: "Career",
+    value: "Open to SDE Roles",
+  },
+];
 
 const About = () => {
   return (
     <section className="about" id="about">
-      <div className="about-left">
-        <motion.p
-          className="about-subtitle"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          ABOUT
-        </motion.p>
-
-        <h2 className="about-title">
-          <motion.span
-            className="title-red"
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-          >
-            BEYOND
-          </motion.span>
-
-          <br />
-
-          <motion.span
-            className="title-white"
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.2,
-              duration: 0.7,
-            }}
-            viewport={{ once: true }}
-          >
-            THE SCREEN
-          </motion.span>
-        </h2>
-
-        <motion.p
-          className="about-text"
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            delay: 0.4,
-            duration: 0.8,
-          }}
-          viewport={{ once: true }}
-        >
-          I'm Aakash, a Graduate Engineer, Full-Stack Developer, GenAI
-          enthusiast, and Photographer.
-          <br />
-          <br />
-          I build intelligent digital experiences, create AI-powered solutions,
-          and tell stories through technology, design, and visual creativity.
-          <br />
-          <br />I enjoy building digital experiences that combine technology,
-          creativity, and human connection.
-        </motion.p>
-      </div>
-
       <motion.div
-        className="about-right"
-        initial={{
-          opacity: 0,
-          scale: 0.8,
-        }}
-        whileInView={{
-          opacity: 1,
-          scale: 1,
-        }}
-        transition={{
-          duration: 1,
-        }}
+        className="about-image-section"
+        initial={{ opacity: 0, x: -70 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
         <div className="about-image-wrapper">
-          <img src={aboutImage} alt="About Aakash" className="about-image" />
+          <img src={aboutImage} alt="Aakash" />
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="about-content"
+        initial={{ opacity: 0, x: 70 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <span className="section-tag">ABOUT ME</span>
+
+        <h2>
+          Building software that creates
+          <span> real impact.</span>
+        </h2>
+
+        <p>
+          I'm Aakash B, a Full Stack Developer passionate about building
+          scalable web applications, AI-powered products, and modern user
+          experiences using React, Node.js, and emerging technologies.
+        </p>
+
+        <div className="about-grid">
+          {cards.map((card, index) => (
+            <motion.div
+              className="about-card"
+              key={index}
+              whileHover={{ y: -8 }}
+            >
+              <div className="card-icon">{card.icon}</div>
+
+              <h4>{card.title}</h4>
+
+              <span>{card.value}</span>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </section>
