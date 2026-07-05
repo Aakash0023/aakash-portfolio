@@ -1,170 +1,134 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import "../styles/work.css";
 
+import crackthecampus from "../assets/projects/crackthecampus.png";
 import scenetheory from "../assets/projects/scenetheory.png";
 import cerabai from "../assets/projects/cerabai.jpg";
 import codegalataa from "../assets/projects/codegalataa.jpg";
 
-import photo1 from "../assets/photos/photo1.jpg";
-import photo2 from "../assets/photos/photo2.jpg";
-import photo3 from "../assets/photos/photo3.jpg";
-import photo4 from "../assets/photos/photo4.jpg";
-import photo5 from "../assets/photos/photo5.jpg";
-import photo6 from "../assets/photos/photo6.jpg";
+import { FaGithub } from "react-icons/fa";
+import { HiOutlineExternalLink } from "react-icons/hi";
 
 const projects = [
   {
+    id: "01",
+    title: "CrackTheCampus",
+    description:
+      "A modern placement preparation platform built to help students prepare for coding interviews with an intuitive and responsive experience.",
+    tech: ["React", "Vite", "CSS", "JavaScript"],
+    image: crackthecampus,
+    live: "",
+    github: "",
+  },
+
+  {
+    id: "02",
     title: "SceneTheory",
-    description: "Movie Discovery Platform built with React and TMDB API.",
+    description:
+      "A movie discovery platform powered by the TMDB API with trending movies, advanced search, and detailed movie information.",
+    tech: ["React", "Vite", "TMDB API", "CSS"],
     image: scenetheory,
-    live: "https://scene-theor-git-main-aakash-s-projects02301.vercel.app/",
-    github: "https://github.com/Aakash0023/SceneTheory",
+    live: "",
+    github: "",
   },
 
   {
+    id: "03",
     title: "Cerabai",
-    description: "Brain Stroke Detection using AI and Machine Learning.",
+    description:
+      "AI-powered brain stroke detection system developed using deep learning for medical image analysis.",
+    tech: ["Python", "PyTorch", "OpenCV", "Machine Learning"],
     image: cerabai,
-    github: "https://github.com/yourusername/cerabai",
+    live: "",
+    github: "",
   },
 
   {
+    id: "04",
     title: "Code Galataa",
-    description: "AI-powered Coding Analytics Dashboard.",
+    description:
+      "Coding analytics dashboard providing AI-powered insights into coding efficiency and performance.",
+    tech: ["React", "Node.js", "MongoDB", "AI"],
     image: codegalataa,
+    live: "",
+    github: "",
+    status: "Product Team Project",
   },
 ];
 
-const photos = [photo1, photo2, photo3, photo4, photo5, photo6];
-
 const Work = () => {
-  const [activeTab, setActiveTab] = useState("projects");
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
-
   return (
     <section className="work" id="work">
-      <p className="work-subtitle">PORTFOLIO</p>
+      <motion.p
+        className="work-subtitle"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
+        PORTFOLIO
+      </motion.p>
 
-      <h2 className="work-title">
-        <span className="title-red">MY</span>
-        <br />
-        <span className="title-white">WORK</span>
-      </h2>
+      <motion.h2
+        className="work-title"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        Featured <span>Projects</span>
+      </motion.h2>
 
-      <div className="work-tabs">
-        <button
-          className={activeTab === "projects" ? "active" : ""}
-          onClick={() => setActiveTab("projects")}
-        >
-          PROJECTS
-        </button>
-
-        <button
-          className={activeTab === "photography" ? "active" : ""}
-          onClick={() => setActiveTab("photography")}
-        >
-          PHOTOGRAPHY
-        </button>
-      </div>
-
-      {activeTab === "projects" ? (
-        <div className="projects-container">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="project-card"
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: index * 0.15,
-              }}
-              viewport={{ once: true }}
-            >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="project-image"
-              />
-
-              <div className="project-content">
-                <h3>{project.title}</h3>
-
-                <p>{project.description}</p>
-
-                <div className="project-buttons">
-                  {project.live && (
-                    <a href={project.live} target="_blank" rel="noreferrer">
-                      LIVE DEMO
-                    </a>
-                  )}
-
-                  {project.github && (
-                    <a href={project.github} target="_blank" rel="noreferrer">
-                      GITHUB
-                    </a>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      ) : (
-        <div className="photo-grid">
-          {photos.map((photo, index) => (
-            <motion.div
-              key={index}
-              className="photo-image-wrapper"
-              initial={{
-                opacity: 0,
-                scale: 0.8,
-              }}
-              whileInView={{
-                opacity: 1,
-                scale: 1,
-              }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.1,
-              }}
-              viewport={{ once: true }}
-            >
-              <img
-                src={photo}
-                alt={`Photography ${index + 1}`}
-                className="photo-item"
-                onClick={() => setSelectedPhoto(photo)}
-              />
-
-              <div className="photo-overlay">
-                <h3>Captured on</h3>
-                <p>Sony A6400</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      )}
-
-      {selectedPhoto && (
-        <div className="lightbox" onClick={() => setSelectedPhoto(null)}>
-          <img
-            src={selectedPhoto}
-            alt="Full Preview"
-            className="lightbox-image"
-          />
-
-          <button
-            className="close-lightbox"
-            onClick={(e) => {
-              e.stopPropagation();
-              setSelectedPhoto(null);
+      <div className="projects-grid">
+        {projects.map((project, index) => (
+          <motion.div
+            key={project.id}
+            className="project-card"
+            initial={{ opacity: 0, y: 70 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: index * 0.15,
             }}
+            viewport={{ once: true }}
           >
-            ✕
-          </button>
-        </div>
-      )}
+            <div className="project-image-container">
+              <img src={project.image} alt={project.title} />
+
+              <span className="project-number">{project.id}</span>
+            </div>
+
+            <div className="project-content">
+              <h3>{project.title}</h3>
+
+              <p>{project.description}</p>
+
+              <div className="tech-stack">
+                {project.tech.map((tech) => (
+                  <span key={tech}>{tech}</span>
+                ))}
+              </div>
+
+              <div className="project-buttons">
+                {project.live && (
+                  <a href={project.live} target="_blank" rel="noreferrer">
+                    <HiOutlineExternalLink />
+                    Live Demo
+                  </a>
+                )}
+                {project.github && (
+                  <a href={project.github} target="_blank" rel="noreferrer">
+                    <FaGithub />
+                    GitHub
+                  </a>
+                )}{" "}
+                {project.status && (
+                  <span className="project-status">{project.status}</span>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </section>
   );
 };
