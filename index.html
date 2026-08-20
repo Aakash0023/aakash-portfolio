@@ -84,7 +84,7 @@
         outline-offset: 2px;
       }
 
-      /* ===== boot screen ===== */
+    
       #bootScreen {
         position: fixed;
         inset: 0;
@@ -141,7 +141,7 @@
         letter-spacing: 0.05em;
       }
 
-      /* ===== graph paper backdrop ===== */
+      
       .grid-bg {
         position: fixed;
         inset: 0;
@@ -152,7 +152,7 @@
         background-size: 28px 28px;
       }
 
-      /* ===== big watermark ===== */
+      
       .watermark {
         position: absolute;
         top: 20px;
@@ -170,7 +170,7 @@
         white-space: nowrap;
       }
 
-      /* ===== desktop dock icons ===== */
+      
       .dock {
         position: fixed;
         top: 100px;
@@ -238,7 +238,7 @@
         }
       }
 
-      /* ===== main column ===== */
+      
       main {
         position: relative;
         z-index: 2;
@@ -306,7 +306,7 @@
         padding: 44px;
       }
 
-      /* ===== hero window ===== */
+      
       .hero-window {
         margin-top: 60px;
         cursor: grab;
@@ -740,7 +740,7 @@
         }
       }
 
-      /* ===== taskbar ===== */
+      
       .taskbar {
         position: fixed;
         bottom: 0;
@@ -784,7 +784,7 @@
         opacity: 0.9;
       }
 
-      /* ===== minesweeper-style close animation ===== */
+      
       .mine-blast {
         position: fixed;
         inset: 0;
@@ -1067,7 +1067,7 @@
         }
       }
 
-      /* ===== modal / popup windows ===== */
+      
       .modal-overlay {
         position: fixed;
         inset: 0;
@@ -1137,7 +1137,7 @@
         margin-bottom: 14px;
       }
 
-      /* ===== 90s arcade background ===== */
+      
       .retro-arcade {
         position: fixed;
         inset: 0;
@@ -1805,7 +1805,7 @@
     </nav>
 
     <main>
-      <!-- ============ HERO WINDOW ============ -->
+     
       <section class="window hero-window is-visible" id="hero">
         <div class="titlebar">
           <span class="path">C:\Aakash\portfolio</span>
@@ -1835,7 +1835,7 @@
         </div>
       </section>
 
-      <!-- ============ ABOUT WINDOW ============ -->
+      
       <section class="window reveal" id="about">
         <div class="titlebar">
           <span class="path">C:\Aakash\about.txt</span>
@@ -1879,7 +1879,7 @@
         </div>
       </section>
 
-      <!-- ============ EXPERIENCE WINDOW ============ -->
+      
       <section class="window reveal" id="experience">
         <div class="titlebar">
           <span class="path">C:\Aakash\experience</span>
@@ -1926,7 +1926,7 @@
         </div>
       </section>
 
-      <!-- ============ WORK WINDOW ============ -->
+
       <section class="window reveal" id="work">
         <div class="titlebar">
           <span class="path">C:\Aakash\works</span>
@@ -1997,7 +1997,7 @@
         </div>
       </section>
 
-      <!-- ============ STACK WINDOW (terminal) ============ -->
+      
       <section class="window reveal stack-window" id="stack">
         <div class="titlebar">
           <span class="path">C:\Aakash\stack.exe</span>
@@ -2025,8 +2025,7 @@
         </div>
       </section>
 
-      <!-- ============ CONTACT WINDOW ============ -->
-      <!-- ============ CONTACT WINDOW ============ -->
+     
       <section class="window reveal" id="contact">
         <div class="titlebar">
           <span class="path">C:\Aakash\contact.msg</span>
@@ -2078,7 +2077,7 @@
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="Aakash_Resume.pdf"
+              href="https://github.com/Aakash0023"
               class="social-chip"
               >GitHub</a
             >
@@ -2086,7 +2085,7 @@
               >LinkedIn</a
             >
 
-            <a href="#" class="social-chip">Resume ↓</a>
+            <a href="Aakash_Resume.pdf" class="social-chip">Resume ↓</a>
           </div>
         </div>
       </section>
@@ -2109,7 +2108,7 @@
       <div class="clock" id="clock">00:00:00</div>
     </div>
 
-    <!-- ============ MODAL: RESUME ============ -->
+    
     <div class="modal-overlay" id="modal-resume">
       <div class="window">
         <div class="titlebar">
@@ -2138,7 +2137,7 @@
           >
             128 KB · last modified 2026
           </div>
-          <a href="#" class="btn btn-fill">Download</a>
+          <a href="Aakash_Resume.pdf" class="btn btn-fill">Download</a>
           <p style="font-size: 11px; color: var(--ink-dim); margin-top: 18px">
             Replace this with a real link to your resume PDF.
           </p>
@@ -2146,7 +2145,7 @@
       </div>
     </div>
 
-    <!-- ============ MODAL: SKILLS ============ -->
+    
     <div class="modal-overlay" id="modal-skills">
       <div class="window">
         <div class="titlebar">
@@ -2206,7 +2205,7 @@
       </div>
     </div>
 
-    <!-- ============ CONTEXT MENU ============ -->
+    
     <div id="contextMenu">
       <button data-menu="refresh">↻ Refresh desktop</button>
       <button data-menu="about">🖥 About this site</button>
@@ -2252,7 +2251,7 @@
           boot.addEventListener("click", finishBoot);
         }
 
-        /* ---------- external links -> new tab ---------- */
+        
         document.querySelectorAll("a[href]").forEach(function (link) {
           var href = link.getAttribute("href") || "";
           if (
@@ -2265,7 +2264,7 @@
           }
         });
 
-        /* ---------- live clock ---------- */
+        
         var clockEl = document.getElementById("clock");
         function tick() {
           var d = new Date();
@@ -2342,14 +2341,12 @@
           }, 400);
         });
 
-        /* ---------- retro Minesweeper blast sound ---------- */
+        
         var blastAudioContext = null;
         var blastNoiseBuffer = null;
 
         function getNoiseBuffer(ctx) {
-          // Cache a short white-noise buffer for the "crack" burst -
-          // broadband noise reads as much louder than a pure tone at
-          // the same gain, which is what actually fixes "not loud enough".
+         
           if (
             blastNoiseBuffer &&
             blastNoiseBuffer.sampleRate === ctx.sampleRate
@@ -2376,12 +2373,7 @@
           return blastAudioContext;
         }
 
-        // Some browsers (Safari/iOS especially) leave a freshly-created
-        // AudioContext in "suspended" state until it's resumed inside a
-        // user-gesture handler, and resume() is async - if we schedule
-        // sound before it actually resolves, nothing plays. Priming the
-        // context on the very first tap/keypress anywhere on the page
-        // means it's already running by the time a window gets closed.
+        
         function unlockBlastAudio() {
           var ctx = ensureBlastContext();
           if (ctx && ctx.state === "suspended") {
@@ -2416,9 +2408,7 @@
           try {
             var now = ctx.currentTime;
 
-            // Master bus: compressor + soft-clip waveshaper act as a
-            // loudness maximizer so we can push individual layers hot
-            // without the mix ever digitally clipping.
+            
             var master = ctx.createGain();
             master.gain.value = 1.6;
 
@@ -2433,7 +2423,7 @@
             var curve = new Float32Array(1024);
             for (var i = 0; i < curve.length; i++) {
               var x = (i / (curve.length - 1)) * 2 - 1;
-              curve[i] = Math.tanh(x * 2.2); // soft saturation, adds perceived loudness
+              curve[i] = Math.tanh(x * 2.2);
             }
             shaper.curve = curve;
             shaper.oversample = "4x";
@@ -2442,7 +2432,6 @@
             compressor.connect(shaper);
             shaper.connect(ctx.destination);
 
-            // Deep impact (layered sub + low oscillators for extra weight)
             [55, 170].forEach(function (startFreq, idx) {
               var boom = ctx.createOscillator();
               var boomGain = ctx.createGain();
@@ -2461,7 +2450,7 @@
               boom.stop(now + 0.56);
             });
 
-            // Retro crack
+            
             var crack = ctx.createOscillator();
             var crackGain = ctx.createGain();
             crack.type = "square";
@@ -2475,7 +2464,7 @@
             crack.start(now);
             crack.stop(now + 0.23);
 
-            // High-pitched pop
+          
             var pop = ctx.createOscillator();
             var popGain = ctx.createGain();
             pop.type = "triangle";
@@ -2489,9 +2478,7 @@
             pop.start(now);
             pop.stop(now + 0.16);
 
-            // Noise burst - this is the main loudness upgrade. Broadband
-            // noise punches through much harder than tones at the same
-            // gain, closest to a real explosion transient.
+            
             var noise = ctx.createBufferSource();
             noise.buffer = getNoiseBuffer(ctx);
             var noiseFilter = ctx.createBiquadFilter();
@@ -2512,11 +2499,11 @@
           }
         }
 
-        /* ---------- Minesweeper-style window close ---------- */
+       
         var mineBlast = document.getElementById("mineBlast");
         var mineCloseTimer = null;
 
-        /* ---------- nostalgic close quotes ---------- */
+       
         var closeQuotes = [
           "Window closed successfully. Please do not throw your monitor.",
           "Saving your progress... just kidding, there wasn't any.",
@@ -2572,7 +2559,7 @@
             });
           });
 
-        /* ---------- restore closed windows ---------- */
+        
         var restoreFolder = document.getElementById("restoreFolder");
 
         function updateRestoreFolder() {
@@ -2596,7 +2583,7 @@
           });
         }
 
-        /* ---------- nostalgic restore sound ---------- */
+        
         var restoreBounceAudio = null;
 
         function playRestoreSound() {
@@ -2620,7 +2607,7 @@
           }
         }
 
-        /* ---------- contact form -> mailto ---------- */
+        
         var contactForm = document.getElementById("contactForm");
         if (contactForm) {
           contactForm.addEventListener("submit", function (e) {
@@ -2641,7 +2628,7 @@
           });
         }
 
-        /* ---------- dock icon actions ---------- */
+        
         document.querySelectorAll(".icon").forEach(function (btn) {
           btn.addEventListener("click", function () {
             var action = btn.getAttribute("data-action");
@@ -2687,7 +2674,7 @@
           }
         });
 
-        /* ---------- right-click context menu ---------- */
+        
         var menu = document.getElementById("contextMenu");
         function hideMenu() {
           menu.classList.remove("active");
