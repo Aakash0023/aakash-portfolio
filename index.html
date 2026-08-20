@@ -84,7 +84,6 @@
         outline-offset: 2px;
       }
 
-    
       #bootScreen {
         position: fixed;
         inset: 0;
@@ -141,7 +140,6 @@
         letter-spacing: 0.05em;
       }
 
-      
       .grid-bg {
         position: fixed;
         inset: 0;
@@ -152,7 +150,6 @@
         background-size: 28px 28px;
       }
 
-      
       .watermark {
         position: absolute;
         top: 20px;
@@ -170,7 +167,6 @@
         white-space: nowrap;
       }
 
-      
       .dock {
         position: fixed;
         top: 100px;
@@ -238,7 +234,6 @@
         }
       }
 
-      
       main {
         position: relative;
         z-index: 2;
@@ -306,7 +301,6 @@
         padding: 44px;
       }
 
-      
       .hero-window {
         margin-top: 60px;
         cursor: grab;
@@ -740,7 +734,6 @@
         }
       }
 
-      
       .taskbar {
         position: fixed;
         bottom: 0;
@@ -784,7 +777,6 @@
         opacity: 0.9;
       }
 
-      
       .mine-blast {
         position: fixed;
         inset: 0;
@@ -1067,7 +1059,6 @@
         }
       }
 
-      
       .modal-overlay {
         position: fixed;
         inset: 0;
@@ -1137,7 +1128,6 @@
         margin-bottom: 14px;
       }
 
-      
       .retro-arcade {
         position: fixed;
         inset: 0;
@@ -1805,7 +1795,6 @@
     </nav>
 
     <main>
-     
       <section class="window hero-window is-visible" id="hero">
         <div class="titlebar">
           <span class="path">C:\Aakash\portfolio</span>
@@ -1835,7 +1824,6 @@
         </div>
       </section>
 
-      
       <section class="window reveal" id="about">
         <div class="titlebar">
           <span class="path">C:\Aakash\about.txt</span>
@@ -1879,7 +1867,6 @@
         </div>
       </section>
 
-      
       <section class="window reveal" id="experience">
         <div class="titlebar">
           <span class="path">C:\Aakash\experience</span>
@@ -1925,7 +1912,6 @@
           </div>
         </div>
       </section>
-
 
       <section class="window reveal" id="work">
         <div class="titlebar">
@@ -1997,7 +1983,6 @@
         </div>
       </section>
 
-      
       <section class="window reveal stack-window" id="stack">
         <div class="titlebar">
           <span class="path">C:\Aakash\stack.exe</span>
@@ -2025,7 +2010,6 @@
         </div>
       </section>
 
-     
       <section class="window reveal" id="contact">
         <div class="titlebar">
           <span class="path">C:\Aakash\contact.msg</span>
@@ -2108,7 +2092,6 @@
       <div class="clock" id="clock">00:00:00</div>
     </div>
 
-    
     <div class="modal-overlay" id="modal-resume">
       <div class="window">
         <div class="titlebar">
@@ -2137,15 +2120,19 @@
           >
             128 KB · last modified 2026
           </div>
-          <a href="Aakash_Resume.pdf" class="btn btn-fill">Download</a>
-          <p style="font-size: 11px; color: var(--ink-dim); margin-top: 18px">
-            Replace this with a real link to your resume PDF.
-          </p>
+          <a
+            href="Aakash_Resume.pdf"
+            download="Aakash_Resume.pdf"
+            class="btn btn-fill"
+            >Download</a
+          >
+          <p
+            style="font-size: 11px; color: var(--ink-dim); margin-top: 18px"
+          ></p>
         </div>
       </div>
     </div>
 
-    
     <div class="modal-overlay" id="modal-skills">
       <div class="window">
         <div class="titlebar">
@@ -2205,7 +2192,6 @@
       </div>
     </div>
 
-    
     <div id="contextMenu">
       <button data-menu="refresh">↻ Refresh desktop</button>
       <button data-menu="about">🖥 About this site</button>
@@ -2251,7 +2237,6 @@
           boot.addEventListener("click", finishBoot);
         }
 
-        
         document.querySelectorAll("a[href]").forEach(function (link) {
           var href = link.getAttribute("href") || "";
           if (
@@ -2264,7 +2249,6 @@
           }
         });
 
-        
         var clockEl = document.getElementById("clock");
         function tick() {
           var d = new Date();
@@ -2341,12 +2325,10 @@
           }, 400);
         });
 
-        
         var blastAudioContext = null;
         var blastNoiseBuffer = null;
 
         function getNoiseBuffer(ctx) {
-         
           if (
             blastNoiseBuffer &&
             blastNoiseBuffer.sampleRate === ctx.sampleRate
@@ -2373,7 +2355,6 @@
           return blastAudioContext;
         }
 
-        
         function unlockBlastAudio() {
           var ctx = ensureBlastContext();
           if (ctx && ctx.state === "suspended") {
@@ -2408,7 +2389,6 @@
           try {
             var now = ctx.currentTime;
 
-            
             var master = ctx.createGain();
             master.gain.value = 1.6;
 
@@ -2450,7 +2430,6 @@
               boom.stop(now + 0.56);
             });
 
-            
             var crack = ctx.createOscillator();
             var crackGain = ctx.createGain();
             crack.type = "square";
@@ -2464,7 +2443,6 @@
             crack.start(now);
             crack.stop(now + 0.23);
 
-          
             var pop = ctx.createOscillator();
             var popGain = ctx.createGain();
             pop.type = "triangle";
@@ -2478,7 +2456,6 @@
             pop.start(now);
             pop.stop(now + 0.16);
 
-            
             var noise = ctx.createBufferSource();
             noise.buffer = getNoiseBuffer(ctx);
             var noiseFilter = ctx.createBiquadFilter();
@@ -2499,11 +2476,9 @@
           }
         }
 
-       
         var mineBlast = document.getElementById("mineBlast");
         var mineCloseTimer = null;
 
-       
         var closeQuotes = [
           "Window closed successfully. Please do not throw your monitor.",
           "Saving your progress... just kidding, there wasn't any.",
@@ -2559,7 +2534,6 @@
             });
           });
 
-        
         var restoreFolder = document.getElementById("restoreFolder");
 
         function updateRestoreFolder() {
@@ -2583,7 +2557,6 @@
           });
         }
 
-        
         var restoreBounceAudio = null;
 
         function playRestoreSound() {
@@ -2607,7 +2580,6 @@
           }
         }
 
-        
         var contactForm = document.getElementById("contactForm");
         if (contactForm) {
           contactForm.addEventListener("submit", function (e) {
@@ -2628,7 +2600,6 @@
           });
         }
 
-        
         document.querySelectorAll(".icon").forEach(function (btn) {
           btn.addEventListener("click", function () {
             var action = btn.getAttribute("data-action");
@@ -2674,7 +2645,6 @@
           }
         });
 
-        
         var menu = document.getElementById("contextMenu");
         function hideMenu() {
           menu.classList.remove("active");
